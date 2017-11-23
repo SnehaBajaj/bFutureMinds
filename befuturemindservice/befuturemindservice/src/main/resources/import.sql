@@ -1,0 +1,1 @@
+insert into account (id, account_Type, user_Id, social_Id) values ('1', 'CC', '1', '1652907568063461');
