@@ -2,6 +2,8 @@ package com.barclaycard.hackathon.befuturemindservice.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 /**
  * Created by vbhatia on 11/23/2017.
  */
@@ -12,17 +14,26 @@ public class Account implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column( name = "ID")
     private String accountId;
 
     @Column(nullable = false)
     private String accountType;
 
     @Column(nullable = false)
+    private String accountBalance;
+
+    @Column(nullable = false)
     private String userId;
 
-    @Column(nullable = true)
+    @Column
     private String socialId;
+
+    @ManyToOne
+    private Bank bank;
+
+    @OneToMany(mappedBy = "account")
+    private List<Transaction> transactions;
 
     public String getAccountId() {
         return accountId;
@@ -40,6 +51,14 @@ public class Account implements Serializable {
         this.accountType = accountType;
     }
 
+    public String getAccountBalance() {
+        return accountBalance;
+    }
+
+    public void setAccountBalance(String accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -54,5 +73,21 @@ public class Account implements Serializable {
 
     public void setSocialId(String socialId) {
         this.socialId = socialId;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 }

@@ -11,20 +11,20 @@ public class SenderSession implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "senderId")
+    @Column( name = "ID")
     private String senderID;
 
-    @Column(name = "lastLoginTS")
-    private Timestamp lastLoginTS;
+    @Column
+    private String lastLoginTS;
 
-    @Column(name = "authenticatedFlag")
+    @Column
     private boolean authenticatedFlag;
 
-    @Column(name = "securePin")
+    @Column
     private String securePin;
 
-    @Column(name = "updateTS")
-    private Timestamp updateTS;
+    @Column
+    private String updateTS;
 
     public String getSenderID() {
         return senderID;
@@ -34,11 +34,11 @@ public class SenderSession implements Serializable {
         this.senderID = senderID;
     }
 
-    public Timestamp getLastLoginTS() {
+    public String getLastLoginTS() {
         return lastLoginTS;
     }
 
-    public void setLastLoginTS(Timestamp lastLoginTS) {
+    public void setLastLoginTS(String lastLoginTS) {
         this.lastLoginTS = lastLoginTS;
     }
 
@@ -58,11 +58,11 @@ public class SenderSession implements Serializable {
         this.securePin = securePin;
     }
 
-    public Timestamp getUpdateTS() {
+    public String getUpdateTS() {
         return updateTS;
     }
 
-    public void setUpdateTS(Timestamp updateTS) {
+    public void setUpdateTS(String updateTS) {
         this.updateTS = updateTS;
     }
 }

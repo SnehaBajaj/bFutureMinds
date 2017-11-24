@@ -13,20 +13,47 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column( name = "ID")
     private String userId;
 
-    @Column(name = "firstName")
+    @Column
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column
     private String lastName;
 
-    @Column(name = "currentBalance")
-    private Long currentBalance;
+    @Column
+    private String emailId;
 
-    @Column(name = "minimumBalance")
-    private Long minimumBalance;
+    @Column
+    private String contactNo;
+
+    @Column
+    private String asid;
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
+    public String getAsid() {
+        return asid;
+    }
+
+    public void setAsid(String asid) {
+        this.asid = asid;
+    }
 
     public String getUserId() {
         return userId;
@@ -52,19 +79,5 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public Long getCurrentBalance() {
-        return currentBalance;
-    }
 
-    public void setCurrentBalance(Long currentBalance) {
-        this.currentBalance = currentBalance;
-    }
-
-    public Long getMinimumBalance() {
-        return minimumBalance;
-    }
-
-    public void setMinimumBalance(Long minimumBalance) {
-        this.minimumBalance = minimumBalance;
-    }
 }
