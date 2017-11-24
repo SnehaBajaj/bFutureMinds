@@ -1,5 +1,7 @@
 package com.barclaycard.hackathon.befuturemindservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -14,7 +16,8 @@ public class Transaction implements Serializable {
     @Column(nullable = false, name = "ID")
     private String transactionId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private Account account;
 
     @Column(nullable = false)

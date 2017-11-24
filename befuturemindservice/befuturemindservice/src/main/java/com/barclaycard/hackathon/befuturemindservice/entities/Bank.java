@@ -1,5 +1,7 @@
 package com.barclaycard.hackathon.befuturemindservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -15,6 +17,7 @@ public class Bank implements Serializable {
     private String bankId;
 
     @OneToMany(mappedBy = "bank")
+    @JsonManagedReference
     private List<Account> accounts;
 
     @Column

@@ -1,5 +1,8 @@
 package com.barclaycard.hackathon.befuturemindservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -29,10 +32,12 @@ public class Account implements Serializable {
     @Column
     private String socialId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private Bank bank;
 
     @OneToMany(mappedBy = "account")
+    @JsonManagedReference
     private List<Transaction> transactions;
 
     public String getAccountId() {
